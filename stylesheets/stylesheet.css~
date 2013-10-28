@@ -98,6 +98,7 @@ header h2 {
 
 .sidebar {
   margin-left: 40px;
+  border: solid 1px;
   float: right;
   width: 200px;
 }
