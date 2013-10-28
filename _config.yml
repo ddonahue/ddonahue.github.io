@@ -1,0 +1,8 @@
+name:   Dan Donahue's Blog
+
+limit_posts:	0
+pygments:	true
+
+markdown:	redcarpet
+markdown_ext:	markdown,mkd,mkdn,md
+
