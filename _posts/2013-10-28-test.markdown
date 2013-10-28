@@ -3,4 +3,15 @@ layout: post
 title: First Post
 ---
 
-Hello
+This is related to many of the other things I've been posting. It's similar to GitHub's strategy for working asynchronously and the whole "No managers" ideas. But I found one point particularly interesting in this article and worth mentioning:
+
+http://ryancarson.com/post/63593803482/how-to-communicate-in-a-nomanager-company
+
+In the first paragraph, the author writes:
+
+"The default mode of communication at Treehouse is 'public'".
+
+What a novel idea. That means most communication is not done through emails, closed-door exclusive meetings, etc. These are silos of information. Rather, when you aim for a majority of communication to be public, everyone can be on the same page. Not only can developers know what decisions are being made, but the reverse is also true - progress is public as well and much easier for product owners, etc. to see.
+
+I found this to be an interesting benefit I hadn't thought of. I've always suggested that a public forum be used to work in a more asynchronous manner. Meetings, responding to email and other communication methods take you out of your flow. They're disruptive. But a forum is opt-in. It's asynchronous. You can look at it when the time is best for you to do and you can also read only that which interests you. That frees up time your time to be doing whatever is best at any given time.
+
