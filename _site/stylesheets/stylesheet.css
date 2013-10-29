@@ -94,7 +94,7 @@ header h2 {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 35px;
-  min-height: 500px;
+  min-height: 800px;
 }
 
 .sidebar {
@@ -323,7 +323,7 @@ dl dt {
   color: #303030;
 }
 
-footer {
+hr.footer {
   background: transparent url('../images/hr.png') 0 0 no-repeat;
   margin-top: 40px;
   padding-top: 20px;

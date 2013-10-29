@@ -323,7 +323,7 @@ dl dt {
   color: #303030;
 }
 
-footer {
+hr.footer {
   background: transparent url('../images/hr.png') 0 0 no-repeat;
   margin-top: 40px;
   padding-top: 20px;
