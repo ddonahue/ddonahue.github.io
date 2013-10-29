@@ -16,36 +16,30 @@
 
   <body>
     <div class="wrap">
-    <div class="container">
-      <div class="content">
-        <header>
-          <h1>{{page.title}}</h1
-          <h2></h2>
-        </header>
+      <div class="container">
+        <div class="content">
+          <header>
+            <h1>{{page.title}}</h1
+            <h2></h2>
+          </header>
 
-        <hr>
+          <hr>
 
-        <section id="main_content">
-	{{content}}
-        </section>
+          <section id="main_content">
+	    {{content}}
+          </section>
 
-	<footer>
-	</footer>
+	  <footer>
+	  </footer>
 
-    {% if page.comments %}
-      {% include comments.html %}
-    {% endif %}
+          {% if page.comments %}
+            {% include comments.html %}
+          {% endif %}
 
-      </div> 
-      {% include sidebar.html %}
-      <div class="clear"></div>
-    </div>
-
-    <div id="container">
-      <div class="inner">
-
+        </div> 
+        {% include sidebar.html %}
+        <div class="clear"></div>
       </div>
-    </div>
     </div>
   </body>
 </html>
