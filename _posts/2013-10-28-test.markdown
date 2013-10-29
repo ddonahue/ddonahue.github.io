@@ -1,6 +1,7 @@
 ---
 layout: post
 title: First Post
+comments: true
 ---
 
 This is related to many of the other things I've been posting. It's similar to GitHub's strategy for working asynchronously and the whole "No managers" ideas. But I found one point particularly interesting in this article and worth mentioning:

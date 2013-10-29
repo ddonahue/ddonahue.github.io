@@ -64,7 +64,6 @@ a:hover {
 }
 
 header {
-  padding-top: 35px;
   padding-bottom: 25px;
 }
 
@@ -94,12 +93,14 @@ header h2 {
 .container {
   padding-left: 20px;
   padding-right: 20px;
+  padding-top: 35px;
 }
 
 .sidebar {
   margin-left: 40px;
   float: right;
   width: 200px;
+  font-size: .8em;
 }
 
 .content {
@@ -112,10 +113,6 @@ header h2 {
   clear: both;
 }
 
-
-#downloads {
-  margin-bottom: 40px;
-}
 
 a.button {
   -moz-border-radius: 30px;
@@ -174,6 +171,8 @@ a.button span {
   background: transparent url(../images/tar-gz-icon.png) 12px 50% no-repeat;
 }
 #view-on-github span {
+  height: 23px;
+  padding-left: 40px;
   background: transparent url(../images/octocat-icon.png) 12px 50% no-repeat;
 }
 #view-on-github {
