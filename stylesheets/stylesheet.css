@@ -339,6 +339,17 @@ footer a:hover {
   color: #444;
 }
 
+.page-numbers {
+  display: inline-block;
+  line-height: 0.9em;
+  margin: 0;
+  padding: 4px 6px;
+}
+
+a.page-numbers {
+  background: none repeat scroll 0 0 #E9E9E9;
+}
+
 /* MISC */
 .clearfix:after {
   clear: both;
