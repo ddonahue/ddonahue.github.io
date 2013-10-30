@@ -7,7 +7,7 @@ title: Homepage
   {% for post in paginator.posts %}
     <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
     <span>{{ post.date | date_to_string }}</span>
-    <p>{{ post.excerpt }}</p>
+    {{ post.excerpt }}
   {% endfor %}
 
   <div class="pagination">
