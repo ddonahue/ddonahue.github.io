@@ -321,6 +321,20 @@ dl dt {
   color: #303030;
 }
 
+.post-navigation .last {
+	float: left;
+	width: 380px;
+}
+
+.post-navigation .home {
+	float: left;
+}
+
+.post-navigation .next {
+	float: right;
+}
+
+
 hr.footer {
   background: transparent url('../images/hr.png') 0 0 no-repeat;
   margin-top: 40px;

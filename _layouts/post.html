@@ -24,11 +24,14 @@
 
           <hr>
 
+
           <section id="main_content">
-	    {{content}}
+      	    {{content}}
           </section>
 	
-	  <hr class="footer">
+	        <hr>
+          {% include post-navigation.html %}
+	        <hr class="footer">
 
 
           {% if page.comments %}
