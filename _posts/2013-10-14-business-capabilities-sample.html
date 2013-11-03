@@ -4,20 +4,26 @@ title: Small Business Capabilities Example
 comments: true
 ---
 
-<p>I spent a few days of odd time/lunches whipping up an insanely small sample web application that:</p>
+<p>In April of this year, I spent a week in New York attending Udi Dahan's Advanced Distributed Systems Design course. It was a great course that taught me a lot and I've been thinking about it and trying to apply those teachings since.<p>
+
+<p>I will probably blog more about the course in the future. But just to give a 10,000ft view for purposes of this post, Udi preaches service-oriented architecture in which each service is totally autonomous and owns its data completely. They communicate via events using messaging. The separation of these services is kept complete to the point that the data is own aggregated on the client by retrieving the data from each service and using a UI framework like Backbone to aggregate the data.</p>
+
+<p>I spent a few lunch hours at work whipping up an insanely small sample web application that:</p>
 
 <ul>
-  <li>Uses messaging (NServiceBus) as its backbone.</li>
+  <li>Uses messaging (NServiceBus) as its backbone to send commands from the UI to services and from services to other services.</li>
   <li>Composes a UI from read services provided by each service.</li>
 </ul>
  
 <p>It is available for anyone to download via:</p>
 
-<p><strong>git clone git@phiv5code.uspa.ibm.com:messaging-demo</strong></p>
+<p><strong><a href="http://github.com/ddonahue/BusinessCapabilitiesSample" target="_new">http://github.com/ddonahue/BusinessCapabilitiesSample</a></strong></p>
 
-<p>Let me know if you any problems getting the code or getting it to run. I built it on my laptop so it uses .NET 4.5 and VS2012.</p>
+<p>Let me know if you any problems getting the code or getting it to run. I built it in VS2012 and it targets .NET 4.5.</p>
 
-<p>My hope was that, although simple, it provides a starting point to show people how a system broken out into services could be built. I hope it lets people start to reason about how a SOA might look, how messaging works, how UI composition could work, etc. I'm hoping it facilitates conversation. I encourage questions and comments.</p>
+<p>My hope was that, although simple, it provides a starting point to show people how a system broken out into services could be built. I hope it lets people start to reason about how a service-oriented architecture might look, how messaging works, how UI composition could work, etc. I'm hoping it facilitates conversation. I encourage questions and comments.</p>
+
+<p>One thing I'd like to mention is that I did NOT compose data in the web client. I found it easier to compose data from different services in the MVC controllers, or presentation layer. This was done for ease and also because javascript UI composition was one of the most debated topics in the course. I personally find it to be a good suggestion for complete and total autonomy between services, but I think having each service expose a read service to your presentation service (whether that be web or thick client) is a good tradeoff.</p>
 
 <p>I may do a series of follow-up blog posts where I highlight different parts of the project with a more in-depth discussion.</p>
 
