@@ -180,7 +180,9 @@ a.button span {
   margin-right: 0;
 }
 
+/*
 code, pre {
+
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal;
   color: #222;
   margin-bottom: 30px;
@@ -206,6 +208,7 @@ pre code {
   border: none;
   padding: 0;
 }
+*/
 
 ul, ol, dl {
   margin-bottom: 20px;
@@ -231,7 +234,7 @@ em {
   font-style: italic;
 }
 
-table {
+/*table {
   width: 100%;
   border: 1px solid #ebebeb;
 }
@@ -251,6 +254,7 @@ form {
   padding: 20px;
   
 }
+*/
 
 
 /* GENERAL ELEMENT TYPE STYLES */
