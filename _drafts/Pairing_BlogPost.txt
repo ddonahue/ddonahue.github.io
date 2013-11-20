@@ -46,16 +46,6 @@ The bad:
 	* http://pragprog.com/magazines/2011-07/pair-programming-benefits -  "If you are the weakest player on the team, you will find that pairing gives you an opportunity to learn from your teammates." <-- not true. people have been removed from teams for not being able to code.
 
 
-The good:
-- You do get up to speed on a new system quicker.
-	* Pairing to start is a good idea. w/ someone with more system knowledge.
-		- I'm not against the practice of putting multiple heads together to solve a particular problem. It's more the act of always doing it or of regulating it.
-- When doing TDD cycles, it works well.
-	* Ping ponging on new code where someone writes a test, the other makes it pass - that is a good flow.
-		- Unfortunately, most code is not like this. A lot of maintenance and other tasks come up that don't follow this flow.
-- Less interruptions.
-
-
 Alternatives:
 Code reviews. Chat rooms.
 Check "How GitHub Works articles".

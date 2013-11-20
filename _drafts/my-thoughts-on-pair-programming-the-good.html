@@ -6,4 +6,32 @@
 
 {% include pairing-series-nav.html %}
 
-SOME STUFF HERE
+<p>I figured I'd start the series with the benefits that I've seen with pair programming over the past year and where it seems to work well.</p>
+
+<p>A new developer can become familiar with a system much more quickly when they're pairing with a developer who is already familiar with the system. I've been on far too many projects where I get hired to maintain a codebase whose original author has moved on to greener pastures (or worse - no longer works for the company). There is a significant amount of time spent learning not just the domain problem that the software is attemping to solve, but understanding HOW the code is architected, where you need to go to change functionality, etc.</p>
+
+<p>Of course, having a developer whose been working in the codebase for a while available in any capacity will help with a lot of those questions. Pair programming just helps tighten that feedback loop and can often make it more proactive. Instead of the new developer needing to ask many questions of the tenured developer, the tenured developer can guide the new developer as they build new features.</p>
+
+<p>This is also implies that a new developer and a tenured developer are pairing together. This is not always the case. I was hired a week before another new developer started on the same team. When we would pair together, it would often be a painful process because neither of us were sure of what we were doing. The common axiom of "two heads are better than one" fails when you have Tweedledee and Tweedledum combining brains :)</p>
+
+<p>Another situation where pair programming works well is when you're in a tight ping pong pairing loop. Let me explain. <a href="http://c2.com/cgi/wiki?PairProgrammingPingPongPattern" target="_new">Ping pong pairing</a> is the act of having Developer A write a small unit test, then passing control to Developer B. Developer B makes that test pass and refactors and then writes the 2nd test. Control is passed back to Developer A who makes the test pass and refactors. And the cycle continues.</p>
+
+<p>When you get into a nice rotation doing that, pair programming seems a great fit. Both members of the pair are engaged, checking each other's work and working together. In fact, I'd say these were the pairing sessions that I've most enjoyed over the past year.</p>
+
+<p>The problem? These types of sessions are few and far between. You would think that this is how all day every day goes in a pairing environment. But as is often the case, reality doesn't match our perception. The reality is that most tasks that get worked on do not fit into this ideal mold.</p>
+
+<p>Any time there are no unit tests, this breaks down. Any time the task is more about synthesizing information than writing code, this breaks down. And this happens quite frequently. Editing a build script or integrating a new third party library or tool (a large majority of the task is reading and learning about the tool) are just two examples I can think of off the top of my head.</p>
+
+<p>Even tasks that are writing code in the application aren't so cut and dry. Imagine you're building a web application and there's a task to add a new form to collect some data, submit it to the server and store in the database. That seems like a good candidate for ping pong pairing. Not so fast.</p>
+
+<p>You start by synthesizing the task at hand and what you need to change in order to make it work. THEN, you can ping pong the code which saves the submitted data to the database. Now it's time to build up the HTML for the form. The HTML has no unit tests. Nor does the JavaScript. How do you ping pong on this? There's no clean spot with which to shift control from one developer to another. Ping pong pairing session over. Back to cowboy pairing.</p>
+
+<p>And cowboy pairing is where I see things often go pear shaped. It's very easy for one developer to dominate, whether intentional or not, and for the other developer to lose focus. In fact, it's gotten to the point where two different pairing teams I've worked on have adopted the idea of "non-pair-worthy tasks" to tackle this exact issue.</p>
+
+<p>The last major benefit I see is that pairing helps with focus. It's very easy for an individual developer to sort of space out. What starts as finding an answer to a problem on Stack Overflow turns into a Hacker News readathon and next thing you know it's lunch time. Oops. When you have another developer embedded with you, it's easier to stick to the task at hand. You are holding each other accountable.</p>
+
+<p>And of course, the obvious flip side is that it can be mentally exhausting. I wouldn't advocate three hour reading sessions (although I've fallen into that trap), however sometimes you do need to let your brain rest for a few minutes. And when you're in a pair, part of that accountability makes it hard for you to admit that maybe a break would be in your best interest. So instead you try to plow through and it really can take its toll. My first few weeks, I was getting home from work at 5pm, plopping down in front of the TV until about 8pm and then going to bed. And keep in mind, we're writing code here, not digging ditches.</p>
+
+<p>So its not all bad. There are probably lessons to be learned from this text about how you can maximize some of these positive things while working to negate or offset some of the downsides that come along with them. I'll leave that as an exercise to the reader. It's something I've been trying to discuss with other developers I work with. If I have any breakthroughs, they'll be in a future post.</p>
+
+<p>The next post(s) will focus on some of the downsides of pairing. Both from a technical perspective and from a personality perspective.</p>
