@@ -9,6 +9,7 @@ The bad:
 	* Have to come in at the same time, for example. Penalties if you don't. Everyone works differently. (see "How GitHub works" articles - code is a creative endeavor - not everyone is creative at the same time).
 	* I love to block out distractions and listen to music. Other devs prefer silence to think.
 	* http://zachholman.com/posts/how-github-works-asynchronous/ - "In the zone"
+	* Creativity: some prefer solitude, others like groups: http://lifehacker.com/5818771/does-solitude-boost-your-creative-productivity
 
 - Rest of team held to different standards.
 	* Only pairing developers have to be in at the same time. And have to be in the office.
