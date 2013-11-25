@@ -1,25 +1,7 @@
 The bad:
 
-- Promotes group think. Loss of individual ideas.
-	* Concensus often means lowest common denominator (i.e. watered down idea)
-	* Best ideas are often the result of one person. Other ways to get concensus is to have code reviews or vet your ideas with others.
-
-- Each developer works has their own "best" setup
-	* Vim (with vimrc), ReSharper, 1 vs. 2 screens, etc.
-	* Have to come in at the same time, for example. Penalties if you don't. Everyone works differently. (see "How GitHub works" articles - code is a creative endeavor - not everyone is creative at the same time).
-	* I love to block out distractions and listen to music. Other devs prefer silence to think.
-	* http://zachholman.com/posts/how-github-works-asynchronous/ - "In the zone"
-	* Creativity: some prefer solitude, others like groups: http://lifehacker.com/5818771/does-solitude-boost-your-creative-productivity
-
-- Rest of team held to different standards.
-	* Only pairing developers have to be in at the same time. And have to be in the office.
-	* QA/BA can work from home, come in whenever.
+- The mental letdown of not seeing things get "done" when you split in the middle of a task. The opposite is true as well: being thrown into the middle of something with very little context.
 	
-- Feel like you get worse at your craft
-	* Spend less actual time coding
-	* Don't use the toolset I've grown quite accustomed to
-	* I've coded at home and I found myself struggling with what was my optimal setup. So I just don't code at home anymore.
-
 - Haven't seen any noticeable improvements in code quality
 	* This is often one of the biggest selling points of pairing.
 	* There are still bugs (same amount as other projects). There are still dingy areas of code that no one wants to touch and are hard to change/maintain. There are still poor design decisions that are made in the interest of time or for other reasons.
