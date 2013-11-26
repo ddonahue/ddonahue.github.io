@@ -1,0 +1,30 @@
+---
+  title: My Thoughts On Pair Programming&#58; Code Quality
+  layout: post
+  comments: true
+  excerpt: <p>Among the largest benefits you'll hear about pair programming is a decrease in defects and improved code quality. I'm here to say that in my experience, this is not the case.</p>
+---
+
+{% include pairing-series-nav.html %}
+
+<p>Among the largest benefits you'll hear about pair programming is a decrease in defects and improved code quality. I'm here to say that in my experience, your results may vary.</p>
+
+<p>You can read about many of benefits of pair programming, including its links to code quality, <a href=" http://c2.com/cgi/wiki?PairProgrammingBenefits" target="_new">here</a>. Taken at face value, they seem to be pretty defensible. But as is so often the case, reality doesn't always meet expectations.</p>
+
+<p>Over the past year, I've seen plenty of bugs. And while I haven't kept strict stats, I haven't felt there was any decrease in defects as compared to other projects I've worked on at other jobs where pairing was not part of the process.</p>
+
+<p>I think making the statement that pairing leads to less defects ignores the complex subject of defects. Bugs can be caused by programmer error, by incorrectly or misunderstood requirements, by unexpected or unintended situations (for example, some code processed 1000 db records just fine when we built it, but no one realized the client would be using it for 10m db records and it craps out), by codebases growing so large that they become impossible to reason about. There are all kinds of reasons bugs happen.</p>
+
+<p>I think pair programming can help with the programmer error category. But so can unit testing. So can having a code review. In fact, I think I've seen our defect rate drop the most after we changed our definition of done from 'developers are done coding' to 'developers are done coding and both QA and the business analyst have tested it and signed off on it'. Breaking up a large codebase can also help by making it easier to understand. After all, <a href="http://www.codinghorror.com/blog/2006/07/diseconomies-of-scale-and-lines-of-code.html" target="_new">size is the enemy</a>. From Steve McConnell's great book, Code Complete:</p>
+
+<blockquote>Project size is easily the most significant determinant of effort, cost and schedule [for a software project]. People naturally assume that a system that is 10 times as large as another system will require something like 10 times as much effort to build. But the effort for a 1,000,000 LOC system is more than 10 times as large as the effort for a 100,000 LOC system.</blockquote>
+
+<p>The point is - I think a combination of tactics is what truly helps the bug numbers. Any individual tactic may drop your defect rate by a certain percentage. But none of them are a silver bullet. Your best bet is to employ a multitude of those tactics.</p>
+
+<p>Similarly, it often gets mentioned that pairing produces higher quality designs than an individual developer would. It's not that cut and dry. This presupposes that both members of the pair have the same definition of quality. What I've seen many times is that one member of the pair may prefer velocity, or getting the story done as quickly and with as little  code as possible, while the other prefers making the code more maintainable in the long run. Without context, neither of these viewpoints are invalid.</p>
+
+<p>In these situations, you have a real problem on your hands. It usually goes one of two ways in my experience. You can either bring up your concerns about the design and the pairing session suffers. Or you choose not to bring it up and allow the design to suffer.</p>
+
+<p>The reality is that there are still deep, dark corners of the codebase that developers or pairs fear to go because there be dragons. I think only discipline can stop that from happening. And pair programming does not guarantee discipline.</p>
+
+<p>I thought this would be the last post, but I think there will be one more for odds and ends. Things that didn't fit into any of the previous topics, but aren't worthy of an entire post by themselves.</p>
