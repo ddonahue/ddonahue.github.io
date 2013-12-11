@@ -1,8 +1,0 @@
-The bad:
-
-- The mental letdown of not seeing things get "done" when you split in the middle of a task. The opposite is true as well: being thrown into the middle of something with very little context.
-	
-- Sometimes pairing isn't pairing, but is really "watching someone else code" or "coding while your pair sleeps".
-	* I've been on both sides of this. I think it shows the natural desire of each developer to work on their own.
-	* One person, often the person with more system experience, will code and code and never tag in the other pair member. If the other pair member doesn't want to rock the boat, they won't ask for control and the session really becomes one programmer coding and the other quietly feeling left out.
-	* http://pragprog.com/magazines/2011-07/pair-programming-benefits -  "If you are the weakest player on the team, you will find that pairing gives you an opportunity to learn from your teammates." <-- not true. people have been removed from teams for not being able to code.
