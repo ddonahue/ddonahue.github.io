@@ -1,0 +1,34 @@
+---
+layout: post
+title: From Delegates To Lambdas, Pt. 1 - What's A Delegate?
+comments: true
+excerpt: <p>I'm going to take the next few blog posts to explain lambda expressions (and delegates) - something we use every day as LINQ users.</p>
+---
+
+{% include rigo-notice.html %}
+
+<p>I'm going to take the next few blog posts to explain lambda expressions (and delegates) - something we use every day as LINQ users. But it's important to know what they are and why they're useful, beyond just knowing that the way to get a DB record matching a certain Id is by writing <strong><em>x =&gt; x.Id == 42</em></strong>. Hopefully these posts will start to get some thoughts going about other ways that lambdas could be used.</p>
+
+<p>To understand lambdas, it's important to understand what came before them - namely, delegates. So this first post is going to explain what delegates are. But first a quick history lesson - when I say "what came before them", I'm talking about the history of .NET only. Delegates and lambdas have been around for a long time. They've been in the computer realm since LISP, Python has them and Ruby actually relies heavily on them. And function pointers have been around forever as well. So .NET is late to the party.</p>
+
+<p>There are a few ways to think about delegates. A delegate is a pointer to a function, meaning you can create an instance of an object that is really a function and you can invoke that function through the instance. Another way to think about them, and the way that seems to resonate with me the most, is that a delegate is similar to an interface, but pertaining to functions - it defines a template or a contract. You create a delegate and it says "any function that conforms to my standard will take in these inputs and produce this type of return value". Let's look at an example.</p>
+
+<script src="https://gist.github.com/ddonahue/133ed456895621f395a6.js"></script>
+
+<p>There's your delegate definition. It looks like any other function definition, except for the <em>delegate </em>keyword. What this delegate is doing is defining a template for any function that has a boolean return value and takes a TeamDTO object as a parameter. Any function that does those two things will fulfill this template. The name <em>Filter </em>is useful to explain what type of functions this should be applied to, but it could be named anything because it's analogous to a type definition.</p>
+
+<p>So what's so useful about this? Well - you can imagine that at different times, you might want to filter a list based on different criteria. In my example, I'm going with hockey teams (as usual). Maybe at one point in the application, I want to get only the teams in the Eastern Conference. Another time, I might want to only get the teams whose name starts with the letter B. The ideas are endless. Without delegates, this is achievable - you just have to create a bunch of different functions called FilterBy<em>Whatever </em>and implement the same thing over and over again. Furthermore, what if I release this code to the public as a class library and a user wants to do a search that I haven't written a function for? With the delegate in place, we can write a function like this:</p>
+
+<script src="https://gist.github.com/ddonahue/a54a84fa8bc2d621bbf2.js"></script>
+
+<p>Notice that the 2nd parameter of that function is an instance of our delegate. With that in place, we can pass in a function that satisfies the delegate definition and invoke it within the <em>SelectTeamsByFilter </em>function. You can see that I've done just that in the IF statement.</p>
+
+<p>So for the two examples above, what if I wanted to be able to filter a list of teams by their conference? Or only teams that start with the letter B? You can just create functions that satisfy the contract of the delegate (accept a TeamDTO as a parameter and return a boolean). And then pass them into the <em>SelectTeamsByFilter </em>function like so:</p>
+
+<script src="https://gist.github.com/ddonahue/02df34cb4ee546903611.js"></script>
+
+<p>Yes. I just passed functions into another function to be run. Pretty sweet. And to go back to my other example where someone who is using my compiled library wants to do a search that I haven't written code for - as long as they call this function with a method that conforms to the contract of the delegate (once more - takes a TeamDTO and returns a boolean value), it'll run. And these don't have to be as simple as the examples above. They can do as much work inside the functions as you'd like - they just have to stick to the input and output contract of the delegate.</p>
+
+<p>So hopefully you are beginning to see how delegates are useful features and maybe some nice ways to use them in your code to cut down on the amount of repeated code or make your code easier to extend or whatever else. In the next part of the series, I'll get into some ways to improve upon this code to make it a little more understandable and a little less cumbersome and move closer to how lambdas were born in the .NET framework.</p>
+
+<p>In the meantime, feel free to share any questions/comments/thoughts.</p>
