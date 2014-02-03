@@ -1,0 +1,41 @@
+---
+layout: post
+title: From Delegates To Lambdas, Pt. 3 - Lambda Expressions
+comments: true
+---
+
+{% include rigo-notice.html %}
+
+<p><a href="/2014/02/03/from-delegates-to-lambdas-pt-2-anonymous-methods.html">In my last post</a>, I explained how to use anonymous methods, or inline delegates, to remove a bunch of unnecessary code from your class. This post is going to explain how lambda expressions are really just a syntatic helper to aid in the removal of more 'extra' code and to make anonymous methods a little more readable.</p>
+
+<p>And that's really what lambda expressions are - cleaner ways to write anonymous methods/inline delegates.</p>
+
+<p>Let's look at our example from last time. To handle two different filtering scenarios, we had this:</p>
+
+<script src="https://gist.github.com/ddonahue/6c93222523008084dcaf.js"></script>
+
+<p>This isn't bad, but you still have to use the delegate keyword and declare a function, complete with parentheses and curly braces inline. That can get hard to match up pretty quickly. So here are these same lines using lambda expressions:</p>
+
+<script src="https://gist.github.com/ddonahue/68a5d6bab91d88583671.js"></script>
+
+<p>As I said earlier, this is really just a cleaner way to write the delegate. The left side of the lambda expression declares the inputs. You will often see these as <em>x</em>. That's just a convention. I chose <em>team</em> because I think it's more descriptive. The right side of the lambda expression holds the statement block, or function body. Pretty simple - lambda expressions are delegates. Nothing to be afraid of.</p>
+
+<p>A few notes about lambda expressions before this post is over.</p>
+
+<p>When a lambda expression's body contains only one line of code, you don't need a <strong>return</strong> - the result of that line of code is assumed to be the return value. So above, the line evaluates to a boolean, so that is considered the return value. That said - you CAN write lambda expressions containing multiple lines of code, but you then have to include the <strong>return </strong>keyword and wrap your expression body in curly braces. Here's a quick example:</p>
+
+<script src="https://gist.github.com/ddonahue/e6112726d213b7bd7f2d.js"></script>
+
+<p>Not super realistic, it filters by teams whose name is ten characters long.</p>
+
+<p>Also - lambda expressions can take zero parameters. In that case, you use an empty set of parentheses on the left side like this:</p>
+
+<script src="https://gist.github.com/ddonahue/8d35381e7f54f947802e.js"></script>
+
+<p>And they can also take multiple inputs. For example, if you wanted to compare two teams:</p>
+
+<script src="https://gist.github.com/ddonahue/4351b7a90fa8980a6746.js"></script>
+
+<p>So there you go. Lambda expressions are nothing more than clean ways to write delegates. And delegates are a really powerful and useful feature to allow you to separate a method from its implementation.</p>
+
+<p>There's going to be one more post in this series. It's a bit of a tangent rather than a continuation, but I wanted to introduce a few classes that .NET provides to help facilitate the use of delegates in your code.</p>

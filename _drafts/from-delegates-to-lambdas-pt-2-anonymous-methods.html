@@ -1,0 +1,27 @@
+---
+layout: post
+title: From Delegates To Lambdas, Pt. 2 - Anonymous Methods == Inline Delegates
+comments: true
+---
+
+{% include rigo-notice.html %}
+
+<p><a href="/2014/02/03/from-delegates-to-lambdas-pt-1-whats-a-delegate.html">In my last post</a>, I introduced delegates and briefly showed you how to use them, along with explaining a few of the benefits. At the same time, there were some drawbacks as well that I probably didn't mention, but may have hinted at.</p>
+
+<p>I suggest you look at that post again to refresh your memory about how delegates are declared and used. The first thing you might notice that is a little less than ideal about the last example is that you still need to declare a function for each of your filters - <em>IsEasternConferenceTeam, </em><em>TeamNameStartsWithB, </em>etc. At that point, why don't you just call them directly in your code instead of passing them into another function?</p>
+
+<p>This is where <strong>anonymous methods</strong> come in. Anonymous methods allow you to declare methods inline using the <em>delegate </em>keyword. This cuts down on unnecessary private functions bulking up your code.</p>
+
+<p>Let's take a look at an example. As a quick refresher, in the last post, we had this for filtering:</p>
+
+<script src="https://gist.github.com/ddonahue/02df34cb4ee546903611.js"></script>
+
+<p>Those two functions at the top are really just different filters. Seems a little bulky. So with anonymous methods we can do this instead:</p>
+
+<script src="https://gist.github.com/ddonahue/6c93222523008084dcaf.js"></script>
+
+<p>Now - we can get rid of those functions. And we can write whatever types of filters we want inline in code wherever we need to filter things.</p>
+
+<p>Again - notice that as long as long as the contract is fulfilled for this delegate (TeamDTO input, boolean output), there will be no complaints from the compiler. And just like I mentioned before, these functions can actually do as much as work as you'd like them to - they don't need to be just one line. Of course, when you get into writing them inline like this, big functions that do a lot of heavy lifting quickly become hard to format. But for quick one-liners, I think this is awesome. And imagine, like I mentioned in my last post, how easy it is now for consumers of this code to write new filters?</p>
+
+<p>The next step is from anonymous methods to lambdas. See Part 3 for that explanation.</p>

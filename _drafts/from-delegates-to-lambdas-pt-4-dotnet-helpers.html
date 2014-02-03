@@ -1,0 +1,48 @@
+---
+layout: post
+title: From Delegates To Lambdas, Pt. 4 - .NET Helpers
+comments: true
+---
+<p>Ok - this is the last part of my series about delegates and lambdas. Finally. But I wanted to mention a few helpers that .NET provides to make it easier to use delegates and lambdas in your code.</p>
+
+<p>If you remember back to the <a href="2014/02/03/from-delegates-to-lambdas-pt-1-whats-a-delegate.html">first post</a> of the series, I mentioned that to declare a delegate to be used as a parameter or anything else, you had to do this:</p>
+
+<script src="https://gist.github.com/ddonahue/133ed456895621f395a6.js"></script>
+
+<p>Well - .NET makes it slightly less tedious with the use of three framework classes, namely <strong><em>Action&lt;T&gt;</em> </strong>(<a href="http://msdn.microsoft.com/en-us/library/018hxwa8.aspx" target="_new">MSDN</a>), <em><strong>Predicate&lt;T&gt;</strong></em> (<a href="http://msdn.microsoft.com/en-us/library/bfcke1bz.aspx" target="_new">MSDN</a>) and <em><strong>Func&lt;T&gt; </strong></em>(<a href="http://msdn.microsoft.com/en-us/library/bb534960.aspx" target="_new">MSDN</a>). Let's look at an example of each.</p>
+
+<h4><br />Action&lt;T&gt;:</h4>
+
+<p>This class encapsulates a delegate that takes one parameter and does not return a value. Meaning, it is a contract that specifies one input parameter, the type of which is specified as a generic, and a void return type. This is useful for a variety of scenarios, but let me show you just one.</p>
+
+<p>If you've noticed, when you create a List&lt;T&gt;, one of the methods on that list that is built-in for .NET is ForEach(Action&lt;T&gt; action). Using that, you can build for-each loops using delegates/lambdas. See below:</p>
+
+<script src="https://gist.github.com/ddonahue/97ce6dfa5f45f74226e7.js"></script>
+
+<p>Or, you can just inline it all with a lambda expression like this:</p>
+
+<script src="https://gist.github.com/ddonahue/a1aa6647bb503bbe2dec.js"></script>
+
+<p>By the way, <strong>Action&lt;T&gt;</strong> also comes in a few additional flavors, those being <strong>Action&lt;T1, T2&gt;</strong>, <strong>Action&lt;T1, T2, T3&gt;</strong> and so on. As you can probably guess, this just allows you to use them to define up to x input parameter types - the return value in all situations is still void.</p>
+
+<h4>Predicate&lt;T&gt;:</h4>
+
+<p>This is another .NET class representing another standard delegate situation. This one takes one parameter and returns a boolean value. This is actually PERFECT for our filter situation. Instead of having to create a delegate like the one at the top of this post, we can use this in it's place, since it does the same thing (takes in one argument, it's generic, but we can specify we want it to be of type TeamDTO and returns a boolean value). So let's see it in action:</p>
+
+<script src="https://gist.github.com/ddonahue/e0908e068aa5f025c6bd.js"></script>
+
+<p>Compare this piece of code to the one in the first post of the series and you see that I just replaced the delegate object I created with the Predicate - why re-invent what .NET already has?</p>
+
+<h4><br />Func&lt;T&gt;:</h4>
+
+<p>This one actually comes in a bunch of different flavors and is arguably the most powerful. And actually, if you look at the MSDN documentation, <strong>Func&lt;T&gt; </strong>is actually not even the correct form of the delegate - but this is how it's used in conversation. The actual name is <strong>Func&lt;TResult&gt;</strong>. And hopefully by now you're catching on and can guess what that means. <strong>Func&lt;TResult&gt; </strong>allows you to specify a delegate with no input parameters and a return value of <strong>TResult.</strong> Like <strong>Action&lt;T&gt;</strong>, <strong>Func&lt;TResult&gt; </strong>has variations that allow you to specify up to 4 input parameters, in addition to the return type. So you have <strong>Func&lt;TResult&gt;, Func&lt;T, TResult&gt;, Func&lt;T1, T2, TResult&gt;, Func&lt;T1, T2, T3, TResult&gt; </strong> and so on. Keep in mind if you use these that the last value will be the return value in any situation.</p>
+
+<p>As a really simple example, imagine I wanted a function that returned all of the team names in a list. Here it is:</p>
+
+<script src="https://gist.github.com/ddonahue/877b01e157956d0af760.js"></script>
+
+<p>The first line defines a <strong>Func&lt;T, TResult&gt; </strong>that accepts a TeamDTO object and returns a string. Then the lambda shows that <em>x</em> is the input parameter and on the other side of the =&gt; is the return statement <em>x.TeamName</em>. The other part is just a for-loop which invokes the delegate.</p>
+
+<p>So that's it for my series on delegates and lambda expressions. But it won't be the last time you hear about them. A lot of the examples in these posts were scholastic in nature, but they probably left you thinking that aside from being neat, where was the benefit? Where all of these helpers, and delegates in general, become really powerful is when you combine them with other features of .NET. So expect to see more of these in future posts. But hopefully these gave you a few ideas about where you could benefit from the use of delegates, or at least help your understanding about what exactly is going on when you type code into your IDE of choice.</p>
+
+<p>Any questions/comments/feedback? Feel free to leave them below.</p>
