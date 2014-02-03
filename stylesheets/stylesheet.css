@@ -369,6 +369,12 @@ a.page-numbers {
   background: none repeat scroll 0 0 #E9E9E9;
 }
 
+p.notice {
+	padding: 15px;
+	font-size: 0.8em;
+	background-color: #D9EDF7;
+}
+
 /* MISC */
 .clearfix:after {
   clear: both;

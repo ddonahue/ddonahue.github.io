@@ -1,0 +1,43 @@
+---
+layout: post
+title: Intro To Extension Methods
+comments: true
+---
+
+{% include rigo-notice.html %}
+
+<p>Extension methods are a feature of .NET that I haven't used much until recently, as I've been trying to get into writing code that is intention-revealing (i.e. reads like plain English, so that you can more easily understand what the code is doing). They are an integral part of the LINQ libraries - for example, the Where() function is an extension method.</p>
+
+<p>If even just the term 'extension method' is new to you, let me quickly explain what they are. They allow developers to add new methods to existing classes without having to subclass them. This is really nice because you can add methods to .NET classes that are sealed, like object and string. And you get Intellisense for the new methods.</p>
+
+<p>So let's look at an example. This one is insanely contrived and you could basically see it in any blog post if you Google "extension methods", but hey - why re-invent the wheel for a simple example?</p>
+
+<p>The string class has a static method <em>IsNullOrEmpty</em> that you can use to check whether a string is (surprise) null or empty. You typically use it like this:</p>
+
+<script src="https://gist.github.com/ddonahue/87d2a24688df584df5e5.js"></script>
+
+<p>Not too bad. But read that: "if string is null or empty someString". We can do better... with an extension method.</p>
+
+<script src="https://gist.github.com/ddonahue/862b54c8c713c625ada1.js"></script>
+
+<p>Read this one: "if someString is null or empty". Maybe it's a bit nitpicky, but I like that better.</p>
+
+<p>So how do we add this extension to the string class? Here is the code:</p>
+
+<script src="https://gist.github.com/ddonahue/4479e742527448724fb5.js"></script>
+
+<p>Create a static class with a static method inside of it. Notice the <em><strong>this</strong></em> in front of the first parameter. That's what let's the compiler know this is an extension method. This extension method will now be 'attached' to every object of the type of that first parameter. So in this case, every string will now have this method available. However, you do have to import the namespace of this static class in any other class where you want to use this method. Intellisense or ReSharper should alert you to that.</p>
+
+<p>For standards sake, when I create extension methods, I like to put them in an Extensions folder in my project, for namespacing. And I also like to name the class <em>TypeBeingExtended</em>Extensions. So as you can see above, since I'm extending String, I named the class containing all the extension methods, StringExtensions.</p>
+
+<p>If this example seemed a bit contrived and simplistic, you're right. But extension methods don't need to only be for providing that nice 'English' interface. You can also add functionality to classes. Without straying too far from the first example, one thing that bothers me about the standard string.IsNullOrEmpty() function is that it doesn't trim the string, so if you have a string that is just a space, it won't be considered null or empty. Depending on your application, you might want that to be considered empty. With extension methods, it's easy to fix that:</p>
+
+<script src="https://gist.github.com/ddonahue/50ae738ab882d071e291.js"></script>
+
+<p>BAM! Add the trim to the function and you're set. If you want to be more explicit, you could change the name of the method to something like <em>IsNullOrEmptyAfterTrim()</em>. It's up to you. But there you go.</p>
+
+<p>Now, a word of warning. Before you get really excited, and turn everything into an extension method, I urge you to proceed with caution. Remember that when you create an extension method, it's available to every object of the type you're extending. That could be good or bad. If you only have one instance of an object that could benefit from the extra functionality, it's probably not worth opening up that functionality to EVERY other object of the same type in your code. Also - even with the conventions of putting all extensions in the same namespace and organizing them in classes by type, when a new developer looks at the project, it's a bit more difficult to find out where the method is coming from. To directly quote another blog, "just because you have a shiny new hammer does not mean that everything in the world suddenly becomes a nail". So if you do want to use them, try to figure out where they'd be most useful in your code and use them there.</p>
+
+<p>This was a very introductory look at extension methods - really just scratching the surface and getting a bit into the how and why you'd create and use them. As I mentioned, the examples probably seem pretty trivial almost to the point of being un-useful. But extension methods can actually do some heavy lifting - and go way beyond simple one-line utility functions. I'll probably do another post later getting into how to use extension methods to do some really cool, powerful things.</p>
+
+<p>In the meantime, if you've used extension methods in some neat way, or even if you haven't but this made you think of a problem you could solve with them, post about it in the comments.</p>
