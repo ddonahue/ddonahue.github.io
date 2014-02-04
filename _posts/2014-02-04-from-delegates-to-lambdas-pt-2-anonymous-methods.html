@@ -2,11 +2,13 @@
 layout: post
 title: From Delegates To Lambdas, Pt. 2 - Anonymous Methods == Inline Delegates
 comments: true
+excerpt: <p>The 2nd post in my series on lambda expressions. This explains how to inline your delegates as anonymous methods.</p>
 ---
 
 {% include rigo-notice.html %}
+{% include lambdas-series-nav.html %}
 
-<p><a href="/2014/02/03/from-delegates-to-lambdas-pt-1-whats-a-delegate.html">In my last post</a>, I introduced delegates and briefly showed you how to use them, along with explaining a few of the benefits. At the same time, there were some drawbacks as well that I probably didn't mention, but may have hinted at.</p>
+<p><a href="/2014/02/04/from-delegates-to-lambdas-pt-1-whats-a-delegate.html">In my last post</a>, I introduced delegates and briefly showed you how to use them, along with explaining a few of the benefits. At the same time, there were some drawbacks as well that I probably didn't mention, but may have hinted at.</p>
 
 <p>I suggest you look at that post again to refresh your memory about how delegates are declared and used. The first thing you might notice that is a little less than ideal about the last example is that you still need to declare a function for each of your filters - <em>IsEasternConferenceTeam, </em><em>TeamNameStartsWithB, </em>etc. At that point, why don't you just call them directly in your code instead of passing them into another function?</p>
 
