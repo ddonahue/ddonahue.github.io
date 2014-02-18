@@ -1,0 +1,39 @@
+---
+layout: post
+title: Refactoring Switch Statements To Reduce Cyclomatic Complexity
+comments: true
+---
+
+{% include rigo-notice.html %}
+
+<p>Switch statements are used a lot in code. They're certainly a way to make what would otherwise be a long IF-ELSE IF statement more readable. But there are a few problems with them (and IF-ELSE IF statements for that matter).</p>
+
+<p>The first is that they increase the <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity" target="_new">cyclomatic complexity</a> of your code. Read that Wikipedia link to get a good idea of what cyclomatic complexity is, but the basic idea is that cyclomatic complexity determines the number of linear independent paths through your source code. That has some implications - it increases the number of possible use/test cases you need to make sure work before you can confidently say your code is finished. And as such, there have been numerous studies that have shown a correlation between the cyclomatic complexity of a piece of code and the number of bugs found in that code.</p>
+
+<p>The second problem is that they violate the <a href="http://en.wikipedia.org/wiki/Open/closed_principle" target="_new">Open-Closed Principle</a>. The Open-Closed Principle states that a class/module/whatever should be open for extension, but closed for modification. In laymen's terms, it means that when you adhere to this principle, once you write a piece of code, you should be able to extend it's behavior without modifying the original code. It's a nice thing to reach for, but I don't think this is a do or die type situation. The Open-Closed Principle is broken all the time, even by the best programmers, but it's something to strive for. And since, at least in the case of this blog post, I'm going to show you how to adhere to this principle by refactoring your switch statements, I figured I'd mention it.</p>
+
+<p>So let's take a look at a really simple switch statement that is inside a RowDataBound event for a GridView:</p>
+
+<script src="https://gist.github.com/ddonahue/6b0a24453f8384c7d726.js"></script>
+
+<p>The app has a list of TODO items, each with a status, and when it displays a list of these TODO items, they are color-coded based on their status. By the way, this is a pretty simple switch statement, but I've seen switch statements with literally more than one hundred conditions in it. Yikes!! And that's a symptom of another general rule of programming which is - if your entire function doesn't fit in your screen, it's too big and is almost definitely doing too much, so break into a few smaller sub-routines.</p>
+
+<p>A few things to note about this, and most, switch statements. They pretty much all work with the same set of data. In this case, every case just sets the ForeColor of the current row to a different color. That's true of most switch statements I've seen. But even if the logic in each switch statement is different, this refactoring I'm about to show you will still help.</p>
+
+<p>Let's also look at how this relates to the two concepts above. Regarding cyclomatic complexity, each case is a decision that has to be made. And regarding the Open-Closed Principle, any time we add a new status, we have to also update this switch statement with any logic for it's coloring.</p>
+
+<p>So what is another way to handle this situation? Dictionarys and delegates!!!! Man - <a href="http://dandonahue.net/2014/02/04/from-delegates-to-lambdas-pt-1-whats-a-delegate.html" target="_new">delegates</a> are handy as hell, aren't they?</p>
+
+<p>First, we'll create a Dictionary. The Dictionary has a unique key and a value. The key will be each case and the value will be a delegate (or lambda, although if your functions were doing more than one line of work, I'd suggest writing a new function and pointing to it via a delegate for readability) that will do that actually work inside the case:</p>
+
+<script src="https://gist.github.com/ddonahue/ccf402a636afe4a013c5.js"></script>
+
+<p>And now, the re-written version of the RowDataBound event for the GridView:</p>
+
+<script src="https://gist.github.com/ddonahue/a9be241b652e0281e86c.js"></script>
+
+<p>All it does is check if the key is in the dictionary and if it is, it gets the value, which is a delegate and runs the method, passing in the row.</p>
+
+<p>So now, cyclomatic complexity is cut down because no matter how many cases there are, it will only have two paths through the code - either the dictionary does contain the key, or it doesn't. And the Open-Closed Principle is adhered to for this function because you will never have to change it if you add a new status. You'll just have to add a new key-value pair to the dictionary. And in a lot of production systems, that can be done with configuration or via the database or whatever else, which means even that piece of code wouldn't have to change. But that's why I say the Open-Closed Principle is not a hard and fast rule, but more of a "do it where you can" type of rule. You can begin to really get abstract if you try to make it so you never have to change any code.</p>
+
+<p>Well, I hope this got some ideas sparking in your head for how you could handle your unwieldy switch statements. Like I hinted at above, even if your switch statements were doing more in their bodies, you could still break each unique case into a function, and parameterize them and get the benefit of reduced cyclomatic complexity and a RowDataBound event that adheres to the Open-Closed Principle.</p>
