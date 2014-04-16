@@ -1,0 +1,30 @@
+---
+layout: post
+title: <em>It's Complex</em> Is An Excuse, Not An Answer
+comments: true
+excerpt: <p>These are things you often hear about legacy code that has built up large amounts of technical debt. They're a warning when they should be looked at as an opportunity.</p>
+---
+
+<p>While pair programming recently, I noticed some code duplication. My partner was manning the keyboard so I mentioned that we should refactor out the duplication into a method that we call. His response was that he just wanted to get the task we were in the middle of done. Fair enough. I'd prefer to be proactive but I also understand being "in the zone". As an alternative, I mentioned that I was going to make a note of it and clean it up the next time I had a few spare minutes. He agreed with that approach and we moved one.</p>
+
+<p>The following morning I got into the office nice and early, as I often do, and I saw my reminder. I went about creating a new method, pulling out all the instances of repeated code and replacing it with a call to said method. I tested it by running the app - it worked fine. I felt good. But I waited for my partner to get before I checked it in because I wanted a second set of eyes on the change. And that's when it happened:</p>
+
+<p>
+Me: "Hey, I did that small refactoring I mentioned yesterday this morning. Can you check it out before I check in?"<br />
+Partner: "You know, you can't just refactor things because you feel like it. It's one thing if it's code you're working on at the moment. The code is old and complex. You're just going to have to live with that."<br />
+
+<p>I felt a little blindsided. I mean, by his own explanation, I had done things right. We were JUST working on that code the previous afternoon until the time I left and I refactored it first thing the following morning. And I had a reason - removing code duplication. It wasn't as though I just went in and wanted to change formatting of braces or something.</p>
+
+<p>That interaction stuck with me and really bothered me for a while but I've let it go and here's why. I realized what he was saying. And while I don't agree with him, I undertand his point.</p>
+
+<h3>The code is old and complex</h3>
+
+<p>That is the general point he was trying to make. You have to be careful refactoring because this code has been around a while and picked up incredible amounts of technical debt. Changing it is a risky proposition because you can never be sure what may break. I hear him loud and clear.</p>
+
+<p>The problem is... <strong>the code is complex/old/whatever</strong> is an excuse, not an answer.</p>
+
+<p>When you come across code like this, your reaction should <strong>not</strong> be to find an excuse to keep your hands off it. Or if you MUST... to tread lightly and add as little code as possible to the already bad situation to make your feature work and move on. This is turning a blind eye to technical debt at best and at worst, you're adding to the problem.</p>
+
+<p>So what can you do when you have a codebase like this, where the folklore around it has developers scared to actively develop in it? The best thing you can do is add unit tests around things and then refactor... as much as necessary. Now, it's true that adding unit tests to a jumbled mess is NOT easy and sometimes a fair amount of work is required just to get the code into a state where it's able to be unit tested. But hey - it's called technical debt for a reason. It's not free. And yes, you might break something. But at least after you fix it, you will also be updating a unit test to confirm that it's fixed and will stay fixed through future changes.</p>
+
+<p>The point is - you should be vigilant in working toward a codebase that is not "complex" and is easy for any developer to get into and understand. And change with confidence!!! Don't make excuses, make changes!!</p>
