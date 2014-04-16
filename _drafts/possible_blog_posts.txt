@@ -1,9 +1,5 @@
 POSSIBLE FUTURE BLOG POST TOPICS:
 
-- "It's complex" or "it's old" as an excuse, not an answer.
-	* Told "don't refactor" because the system is old.
-	* No unit tests means no safety net which makes developers nervous.
-
 - Breaking a problem down. Most devs, including myself, don't go deep enough.
 	* Rich Hickey quote
 	* Talk about benefits of reusability but ALSO hiding what you DON'T care about.
