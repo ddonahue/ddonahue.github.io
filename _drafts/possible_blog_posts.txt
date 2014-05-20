@@ -1,5 +1,13 @@
 POSSIBLE FUTURE BLOG POST TOPICS:
 
+- Your experiences as a job hopper
+	* Pros/Cons
+	* Misconceptions
+	* Reference other blog posts
+	* Discuss both technical aspects and why management understandably doesn't like it.
+	* Any insight gained for employers for how to keep people? Or is it unreasonable? Explain your thoughts on this.
+
+
 - Breaking a problem down. Most devs, including myself, don't go deep enough.
 	* Rich Hickey quote
 	* Talk about benefits of reusability but ALSO hiding what you DON'T care about.
