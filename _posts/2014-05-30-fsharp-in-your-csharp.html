@@ -1,0 +1,52 @@
+---
+layout: post
+title: F# In Your C#
+comments: true
+excerpt: <p>It's good to know the paradigms of other programming styles even when it's just to apply them to another language.</p>
+---
+
+<p>This week at work, we wanted to get some metrics around roughly how long different parts of our code were taking to process. Before I get lambasted, let me reiterate that this was just something to get a rough idea - we weren't looking for in-depth analysis with exact figures. It was just for own edification.</p>
+
+<p>I came up with a short little method that I could wrap around a few method calls to collect their time. It looked like this:</p>
+
+<script src="https://gist.github.com/anonymous/fdff320376d1d7f8281f.js"></script>
+
+<p>Pretty simple. Takes an <strong>Action</strong> and invokes it, wrapping it with a Stopwatch to see how long it takes.</p>
+
+<h3>A Problem Arises</h3>
+
+<p>This was all well and good until I came across a method we wanted to time that returned a value. My original timing method assumed a <strong>void</strong> return type. My first thought was to just create a 2nd method that took a <strong>Func&lt;T&gt;</strong> and returned the value.</p>
+
+<script src="https://gist.github.com/anonymous/2ef98ed3c301323e70f7.js"></script>
+
+<p>The duplication bothered me though. They're so similar, but <strong>Action</strong> and <strong>Func</strong> don't have a common base class I could use to abstract the method to make it reusable.</p>
+
+<h3>Enter The Unit</h3>
+
+<p>In F#, and most other functional languages, every method has a return value. When no return value is necessary, it uses the <strong><a href="http://msdn.microsoft.com/en-us/library/dd483472.aspx" target="_new">Unit</a></strong> type as a placeholder. Think of it as if void were an actual type in C#.</p>
+
+<p>What is nice about this is that you get consistency. Even your methods that "don't return anything" have a return type. And having a common interface is the key to abstraction.</p>
+
+<p>C# doesn't have a proper implementation of the Unit type. You COULD use the Fsharp.Core library in your C# code to get support for the class, but that seems like a large dependency to take on just for this use (that's not to say you shouldn't consider if you want to bring more F# features into your C# work). But you can create a poor man's version of it. Here it is, along with the above code refactored to use it:</p>
+
+<script src="https://gist.github.com/anonymous/4181a10e7329882344c9.js"></script>
+
+<p>First off - I want to credit where it's due. I knew of the <strong>Unit</strong> in F#, but found this simple implementation for C# in <a href="http://stackoverflow.com/questions/4279210/encapsulating-actiont-and-funct" target="_new">this StackOverflow answer</a>. The <strong>Unit</strong> class here is very simple. It just has one property that is set to always return NULL. You can then wrap your action in a <strong>Func&lt;Unit&gt;</strong> block that returns <strong>Unit.Value</strong> and pass it to the generic function. Now you only have to maintain one piece of timer code.</p>
+
+<p>I've seen similar code that does the same action wrapping into a <strong>Func&lt;object&gt;</strong> call and returning NULL. Since the return type is supposed to be ignored, it doesn't really matter. You could wrap it in anything really. But I do find the <strong>Unit</strong> type to be the most explicit. It has a real-world counterpart used for the same purpose in F#.</p>
+
+<h3>Proceed With Caution</h3>
+
+<p>I think this solution came out very nice and I'm glad I tried it. That said, I do seem some possible drawbacks that should be considered.</p>
+
+<p>First, the code to convert an <strong>Action</strong> into a <strong>Func&lt;Unit&gt;</strong> is kind of ugly. If I was going to employ this across more than just one or two files in a project, I'd probably make an extension method or something that would wrap the action for the caller.</p>
+
+<p>Also, it may confuse developers who have not seen the <strong>Unit</strong> type previously, or haven't delved into a functional language. That's worth considering. There's a balance there. I've been on both sides of the fence in the past. I think it's important to understand the paradigms of other programming styles to understand what makes them unique. It helps you choose the best language with the best feature set to solve a particular problem. It's also nice to understand how you can mimic a feature of one language in another, such as this. On the flip side, the argument could be made that if you want functional behavior, perhaps you should use a functional language. Don't fight the paradigms of the language you're currently using. I'm not taking a stand for either side... it's just something to think about.</p>
+
+<p>Finally, and perhaps the biggest one, is that unlike a functional language where unit is akin to void and relatively harmless, you're really just wrapping a class around the idea of returning NULL. You want to be mindful of the fact that while your new <strong>Func&lt;Unit&gt;</strong> returns a NULL value, that value is not to be used. Just like coddling NULLs is bad, accidently passing around NULLs when the intention is to ignore a useless return value is VERY bad. My point is that even though you're generic function will return something you want to make sure you DO NOT use that returned value.</p>
+
+<p>In as many places as you can, you may want to handle the Unit-ifying of <strong>Action</strong>s into <strong>Func&lt;T&gt;</strong>s behind your library code and provide two methods (as above) for the caller of your code to avoid confusion. If you want to start using this in your entire codebase, it's worth explaining to all your teammates what this code is all about so they're using it as intended.</p>
+
+<h3>Conclusion</h3>
+
+<p>It's nice when you can find a good solution to a problem by looking outside your general knowledge base. It's not without its drawbacks, but when you come across a solution that feels right AND you learn something in the process, it's always a great feeling. And when you are writing  code that you're not happy with for some reason, don't just shrug and move on. Try to focus on what it is that is bothering you and then figure out how to solve it - whether that comes from just a redesign using your existing paradigm or reaching out into others to see how they solve similar problems.</p>
