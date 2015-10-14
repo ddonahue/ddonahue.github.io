@@ -1,0 +1,15 @@
+{% if site.categories[page.category].size > 1 %}
+{% assign counter = 0 %}
+<div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="{{ site.url }}/{{ page.category }}/">View all posts</a>)</small></h4>
+  <ul>
+  {% for post in site.categories[page.category] limit:4 %}
+    {% if counter < 3 and post.title != page.title %}
+      <li><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+      {% assign counter = counter | plus:1 %}
+    {% endif %}
+  {% endfor %}
+  </ul>
+  <hr />
+</div><!-- /.related-articles -->
+{% endif %}

@@ -1,15 +1,62 @@
-name:   Dan Donahue
-url: http://dandonahue.net
-description:    Dan Donahue's blog
+# Site wide configuration
 
-limit_posts:	0
-pygments:	true
+title:            Dan Donahue - Journeyman
+locale:           en_US
+url: #http://dandonahue.net
 
-paginate:	5
-paginate_path:	"page/:num"
 
-excerpt_separator:      "\n\n"
+# Jekyll configuration
 
-markdown:	redcarpet
-markdown_ext:	markdown,mkd,mkdn,md
+permalink:   date
+markdown:    kramdown
+highlighter: pygments
+sass:
+  sass_dir: _sass
+  style: compressed
+gems:
+  - jekyll-sitemap
 
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: false
+
+
+# Site owner
+owner:
+  name: Dan Donahue
+  avatar: http://www.gravatar.com/avatar/6dfa02b4173a9f663063ffa914ca0de5.png?size=160
+  bio: "Musician. Traveler. Programmer."
+  email: 
+  disqus-shortname: dandonahue
+  twitter: deathmetaldan13
+  facebook: #username
+  google:
+    plus: #username
+    analytics: 45243911
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: ddonahue
+  stackoverflow: 240908/dan
+  linkedin: #username
+  xing: #username
+  instagram: #username
+  lastfm: deathmetaldan
+  tumblr: #username
+  pinterest: #username
+  foursquare: #username
+  steam: #username
+  dribbble: #username
+  youtube: #username
+  soundcloud: deathmetaldan
+  bandcamp: wilderhost
+  weibo: #username
+  flickr: #username
+  codepen: #username
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]

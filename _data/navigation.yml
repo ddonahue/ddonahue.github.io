@@ -1,0 +1,10 @@
+# Site navigation links
+
+- title: About
+  url: /about/
+
+- title: Professional Musings
+  url: /professional/
+
+- title: Personal Musings
+  url: /personal/

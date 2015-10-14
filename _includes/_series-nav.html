@@ -1,0 +1,17 @@
+{% if page.series %}
+
+<p><em>This post is part of a series:</em></p>
+
+<ul>
+  {% for post in site.posts reversed %}
+    {% if post.series == page.series %}
+      {% if page.url == post.url %}
+        <li>{{ post.part-title }}</li>
+      {% else %}
+      <li><a href="{{ post.url }}">{{ post.part-title }}</a></li>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</ul>
+
+{% endif %}
