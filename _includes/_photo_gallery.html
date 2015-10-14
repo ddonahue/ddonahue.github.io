@@ -1,0 +1,8 @@
+{% if page.images.size > 0 %}
+<h3>Photos</h3>
+<div class="popup-gallery">
+  {% for image in page.images %}
+  <a href="{{ image.feature }}"><img src="{{ image.preview }}" height="75" width="75"/></a>
+  {% endfor %}
+</div>
+{% endif %}

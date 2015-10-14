@@ -30,6 +30,8 @@
     <div class="article-wrap">
       {% include _series-nav.html %}
       {{ content }}
+      {% include _photo_gallery.html %}
+      {% include _song_player.html %}
       <hr />
       <footer role="contentinfo">
         {% if page.share != false %}{% include _social-share.html %}{% endif %}
