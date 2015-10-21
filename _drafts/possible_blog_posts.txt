@@ -16,10 +16,6 @@ POSSIBLE FUTURE BLOG POST TOPICS:
 		- Breaking a feature into small enough chunks means you can see the algorithm without understanding the minituae.
 	* Related to devs being scared of classes (future blog post).
 
-- Unit testing
-	* Often causes object bloat. In order to test functionality, you often need to add some extra functionality. Rather than putting that into its own class, you just include it in the class so you can test it without adding a dependency.
-	* Listen to Sandi Metz. Pass in the things that change into an object.
-
 - Unit testing at the wrong level of abstraction.
 	* Developers create test fixtures per class. This is the wrong level of abstraction. A "unit" in unit testing is"the smallest testable part of an application". This is often thought of as the class, but can often be a single method. (http://en.wikipedia.org/wiki/Unit_testing)
 	* A "test fixture" is a fixed state of the software under test used as a baseline for running tests; also known as a "test context". (http://en.wikipedia.org/wiki/Test_fixture)
