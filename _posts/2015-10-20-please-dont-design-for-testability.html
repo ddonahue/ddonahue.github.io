@@ -1,0 +1,19 @@
+---
+layout: post
+title: Please Don't Design For Testability
+comments: true
+share: true
+category: professional
+---
+
+<p>I'm a fan of unit testing. I practice test-driven development. But over the years, I've heard and seen statements made by unit testing/TDD practioners along the lines of "you should design for testability". Statements to this effect send a chill down my spine. It's not that these statements are wrong. I just think they're misguided. I don't think testability should be the goal - good object-oriented design should be the goal. One of the effects of good object-oriented design is easier testability.</p>
+
+<p>Allow me to explain using the most recent example. During a conversation with a colleague, it was mentioned that dependency injection is used to facilitate testing. I pressed back by saying that dependency injection is actually a technique to promote reuse and adherence to the Open/Closed Principle. Because of that, it <em>aids</em> testing by allowing you to pass in a different implementation of your dependency in your test. The response was something along the lines of "well, in almost all cases I've seen, there is only ever one implementation of the dependency and it gets mocked out in tests - otherwise, why wouldn't we just use the one implementation directly?" I looked puzzled. Isn't the mock/fake/stub/whatever you use in your test a second implementation of the dependency? Therefore - don't you always have at least two implementations if you're writing unit tests for the code? I believe that this style of thinking comes from a "design for testability" mindset.</p>
+
+<p>As a counterpoint, let me give a ludicrous example that I think almost any unit-testing/TDD practitioner would scoff at. If you truly are only concerned with "designing for testability", wouldn't making all of your methods public facilitate that? You wouldn't have to test those pesky private methods through the class's public interface anymore. But most developers recognize that encapsulation is a good thing and that sacrificing encapsulation to improve testability is not. I'm not sure why this breaks down when it comes to some of the other traits of good object-oriented design and SOLID code principles.</p>
+
+<p>So why does this bother me so much? Isn't it just semantics? If you inject dependencies because you want to promote reuse or you inject them because you want to be able to mock them in unit tests, you get both in either case, right? Sort of.</p>
+
+<p>The nuance between the two is that when you design for testability you're more likely to carve out dependencies that make your code easier to test. They may not be great candidates for reuse. They may not truly be the things that are likely to change in a class. It's more likely that dependencies are created for things that "hard to test", like a dependency on the file system or a database. Slightly less obvious but still relevant would be breaking something out because having it be part of the class you're testing would require too much set up in your test fixture, or too many tests.</p>
+
+<p>What worries me is that "design for testability" feels like looking at your design through test-colored glasses. Rather, I believe that your focus should not be on "hard to test". It should be on the design of your code. Slow down a little. Think about what is likely to change. Think about what may be a good candidate for re-use. Break those things out as dependencies and you're likely to find your designs just as testable, but also more maintainable and easier to extend.</p>
