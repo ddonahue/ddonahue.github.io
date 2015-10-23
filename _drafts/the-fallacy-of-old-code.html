@@ -1,15 +1,35 @@
 ---
 layout: post
-title: The Fallacy Of "Old Code"
+title: Temporal Immunity - The Fallacy Of "Old Code"
 comments: true
 share: true
 category: professional
 ---
 
-<p>Re-tell the story of the haiku comment in a 300-line method with nested IFs and multiple switch statements. When you mentioned the comment being unhelpful, a co-worker responded "jeez, even old code isn't safe from scrutiny." But what does old code really mean? It's still part of the app. It still runs. We are in this file, trying to change this 300-line method TODAY so is it really old? Is that just an excuse?</p>
+<p>Is code ever really old? What does old code even mean? Or is saying "that code is old" a form of temporal immunity? A statement implying that the statute of limitations has run out for the code to be qualitatively reviewed?</p>
 
-<p>Reference the two famous quotes... 'write code as though the next person maintaining is a psycopath who knows where you live." http://c2.com/cgi/wiki?CodeForTheMaintainer</p>
+<p>While adding a new feature recently, my colleagues had to enter a file that has been around for a while. They found themselves in the midst of trying to figure out what a method was doing so that they felt confident changing it to support the feature they were working on. The method looked like this pseudo-code:</p>
 
-NOTE:
-- Your code doesn't age while its sitting in source control repo. It's not like the code actively gets worse as it sits around. It's quality is determined at time of writing and again with each future change. That's important because the quality can actually go up OR down.
-- "Temporal immunity": like diplomatic immunity, but based on a length of time.
+<script src="https://gist.github.com/ddonahue/d8bde9a142b305e392f4.js"></script>
+
+<p>It's over 300 lines long with nested if statements, multiple switch statements and yes, that comment was actually in there verbatim.</p>
+
+<p>The developers mentioned in our developers Slack channel that the comment was unhelpful and another developer responded: "Wow! Even <strong></strong>old code</strong> isn't immune to critical scrutiny."</p>
+
+<h2>What Is Old?</h2>
+
+<p>I started thinking about that statement: <strong>old code</strong>. What does it mean? When that method was written, it was brand new. Code does not age while it sits idly in a version control system or runs on your server. The only time it ages, per se, is when a developer changes it. And unlike us humans, it can actually get worse OR better over time.</p>
+
+<h2>Code For The Maintainer</h2>
+
+<p>There is a slightly dark saying:</p>
+
+<blockquote>Always code as if the person who ends up maintaining your code is a violent psychopath who knows where you live.</blockquote>
+
+<p>Or the much more upbeat version:</p>
+
+<blockquote>Always code in such a way that if someone a few notches junior picks up the code, they will take pleasure in reading and learning from it.</blockquote>
+
+
+
+<p>TODO: Reference the two famous quotes... 'write code as though the next person maintaining is a psycopath who knows where you live." http://c2.com/cgi/wiki?CodeForTheMaintainer</p>
