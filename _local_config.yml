@@ -1,3 +1,5 @@
-url:              #http://dandonahue.net
+url: #http://dandonahue.net
 owner:
   disqus-shortname: 
+  google:
+    analytics: 
