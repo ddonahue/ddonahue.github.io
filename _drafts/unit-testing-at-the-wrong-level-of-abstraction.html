@@ -1,0 +1,16 @@
+---
+layout: post
+title: Unit Testing At The Wrong Level Of Abstraction
+comments: true
+share: true
+category: professional
+---
+
+- Unit testing at the wrong level of abstraction.
+	* Developers create test fixtures per class. This is the wrong level of abstraction. A "unit" in unit testing is"the smallest testable part of an application". This is often thought of as the class, but can often be a single method. (http://en.wikipedia.org/wiki/Unit_testing)
+	* A "test fixture" is a fixed state of the software under test used as a baseline for running tests; also known as a "test context". (http://en.wikipedia.org/wiki/Test_fixture)
+	* Given this information, it may actually be a better abstraction to have a test fixture for each context that you want to test. This is not a new idea. Look up BDD in NUnit - find examples.
+		- http://programmaticallyspeaking.com/one-assertion-per-test-please.html
+		- MSpec
+	* Results in more test fixtures (classes) but each one represents a separate context.
+	* The converse is that very often context setup code ends up duplicated in many different test cases.
