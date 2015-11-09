@@ -2,9 +2,13 @@
 
 - title: About
   url: /about/
+  category: about
 
 - title: Professional Musings
   url: /professional/
+  category: professional
 
 - title: Personal Musings
   url: /personal/
+  category: personal
+

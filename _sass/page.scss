@@ -88,6 +88,12 @@ body {
 			@media #{$small} {
 				display: inline;
 				padding: 0;
+				&:hover {
+					border-bottom: 2px solid black;
+				}
+				&.selected {
+					border-bottom: 2px solid black;
+				}
 			}
 		}
 	}
