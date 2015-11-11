@@ -527,6 +527,12 @@ $button-size: 1.5rem;
 	}
 }
 
+.popup-gallery {
+	img {
+		margin-top: 4px;
+	}
+}
+
 /* Image grid - not used */
 .image-grid {
 	@include clearfix;
