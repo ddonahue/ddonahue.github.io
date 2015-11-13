@@ -1,0 +1,12 @@
+Use a method to update an object
+https://gist.github.com/ddonahue/3f05c9c3029a5a48c58b
+
+Use an interface with just getters and setters
+https://gist.github.com/ddonahue/18e289f0ae72e02264a2
+
+My preference would be the first one. Because:
+
+- you're telling the object to do something. That's what methods are for. Whereas properties are more for accessing data on the object.
+- the first one also obscures the internal structure of the object more. It's probably better encapsulation.
+- You typically want to update both parts of the name, or the name as a whole, not the pieces.
+- Etc.
