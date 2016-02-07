@@ -1,0 +1,28 @@
+---
+layout: post
+title: Refactoring vs. Speed - It's Not An Either/Or Proposition
+comments: true
+share: true
+category: professional
+---
+
+<p>I recently watched Ben Orenstein's talk from Aloha Ruby Conference 2012, <a href="https://www.youtube.com/watch?v=DC-pQPq0acs" target="_new">Refactoring From Good To Great</a>, with a group of fellow developers. It was very well received. I enjoyed it immensely. But an hour or so later, I overheard two people discussing the video and the conversation was similar to one I've heard often in regards to refactoring. It went something like this.</p>
+
+<p>
+  <small>
+    <strong>Dev 1:</strong> "That was a great video. Although I'm surprised he would suggest refactoring code while building a feature since he said he was a contractor.<br />
+    <strong>Dev 2:</strong> "I know. Those guys bill hourly. Why would a client want to pay for him to make changes that don't add new features?"<br />
+  </small>
+</p>
+
+<p>Underlying that commentary was the dichotomy I've heard a million times - that you can either add features quickly or refactor, but not both. And I think it's patently false. Let me explain.</p>
+
+<p>The falsehood is actually two-pronged. The first is about whether refactoring in and of itself makes a feature take more time. And it misses the bigger picture. The goal of <em>all</em> software design is to reduce the cost of building software. Refactoring is in line with that. The idea is that you're cleaning up the code with the goal that the cleanliness will aid you adding your feature, or a developer in the future adding another feature. So maybe Ben Orenstein cleans up some code he's in while adding Feature C for a client. It takes him a small amount of additional time. If it makes implementing Feature H easier down the line then it paid for itself... to the client, mind you!</p>
+
+<p>You'll often hear a counter to that point asking how you can predict what will change about the code, or how long it will be before it changes? On the time question, I think it's irrelevant. When the time comes for the code to change, whether it's tomorrow or two years from now, the better the state that it is in, the easier it will be to change. The former question is a little more interesting. You see, you're not actually predicting <em>what</em> will change as much as you're assuming that <em>something</em> will change and thus you're attempting to preserve changeability. Assuming something will change is a fairly safe bet that I would take almost 100% of the time. Think about it - if your product is successful, and we all want ours to be, it will live for a long time. It won't just sputter out and die. It will continue to evolve and any effort to ease that evolution should be viewed as beneficial.</p>
+
+<p>The second falsehood I often come across revolves around the time it takes to refactor something. Way too often, the sides seem to be set that you either refactor everything or you refactor nothing. The idea being that you have to be adding features, so you'd like to refactor, but that would take too much time and you need to get these new features out the door. The truth is that refactoring is not an all or nothing proposition.</p>
+
+<p>Have you heard of the <a href="http://programmer.97things.oreilly.com/wiki/index.php/The_Boy_Scout_Rule" target="_new">Boy Scout Rule(tm)</a>? It says "always leave the campground cleaner than you found it". So let's use a campground as our example. You pull up to your camp site and you notice an empty bottle on the ground. The Boy Scout rule is not telling you that your only choices are to either leave the bottle as is, or to pick up the bottle, plant 17 trees, trim the bushes and build a house. Not in the slightest. If you pick up the bottle, put it in the trash and make sure that you take all of your trash with you when you leave, you've left the camp site better than when you arrived. It's an improvement.</p>
+
+<p>Rome was not built in a day. But little by little, these very small changes can add up to a much cleaner codebase. Don't let refactoring become an either/or proposition. The question is not whether or not to do it - you should do it often - the question is how much? If you split a large method into two, or simplify a conditional statement by putting it in a method with a descriptive name, that's refactoring. These very small steps will make the mental load of the next developer to open this file easier. And it costs you nearly nothing. Embrace refactoring!</p>
