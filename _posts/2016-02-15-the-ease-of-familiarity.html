@@ -1,0 +1,21 @@
+---
+layout: post
+title: The Ease Of Familiarity
+comments: true
+share: true
+category: professional
+---
+
+<p>I find the quirks of human nature very interesting. I was recently reminded of one - the ease of familiarity. This is the case where you fall back into old habits because they're familiar to you, even in the face of new information. Let me give you an example.</p>
+
+<p>My colleagues and I have been spending a lot of time studying good OOP design. A topic that has come up again and again is the idea that OOP developers seem hesitant to make new classes (I've had a blog post in progress about this topic for some time now). You can watch all the videos on composition that you want, but when it comes time to decompose the problem you're working on, developers find it difficult to separate an algorithm into its composite parts. They want to be able to see everything in one place. In that moment, all the benefits that get touted from good OOP design (maintainability, ease of future extension) go out the door. The developer succumbs to being able to see the solution right in front of them on a single screen.</p>
+
+<p>Similarly, in Sandi Metz's great book, Practical Object-Oriented Design In Ruby, she has an example of using role interfaces to loop through a list of objects without needing to know anything about the type of object that is playing the role. She mentions that doing things like type checks to determine behavior is bad. If you need to know the type of the object you're relying on, that's an extra dependency that will make your class harder to change.</p>
+
+<p>A mere days after finishing the book, and watching a video to reinforce this information, we were presented with a problem that appeared to fit this mold exactly. We were modeling contributions to a 401k retirement account and we had a contribution object that contained a boolean flag that was used to determine whether the contribution was from the employee or the employer. Each had slightly different business rules. Our task was to add a third type of contribution.</p>
+
+<p>The task seemed ready-made to capitalize on our newfound knowledge. It appeared that a good fit to the problem would be to create three classes - one for each type - that encapsulated the business rules of each and then put them behind a role interface that would allow the 401k to interact with them transparently. I discussed this with my teammate and his suggestion stopped me dead in my tracks. "Let's just change the boolean to an enum type". Wait.. what? Isn't this just hiding an explict type check with an implicit one on the enum?</p>
+
+<p>I was flabbergasted. This teammate was in complete agreement about the information delivered in all the sources we had consumed days prior. They had commented days prior on some legacy code they came across where we were switching on an enum type to determine which behavior to take, as an example of somewhere we could look to clean up. But all of a sudden, faced with the chance to try something new, they got cold feet. They wanted the comforting embrace of a solution they knew worked because they'd done it before.</p>
+
+<p>This is why driving technical change is so difficult. There are many more forces at play than just "lack of knowledge". There are emotions involved. There is a comfort in the familiar. People are naturally averse to change. It's scary.</p>
