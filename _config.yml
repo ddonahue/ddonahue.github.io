@@ -53,8 +53,9 @@ owner:
   dribbble: #username
   youtube: #username
   soundcloud: deathmetaldan
-  bandcamp: havens
-  bandcamp: wilderhost
+  bandcamp:
+    havens: havens
+    wilderhost: wilderhost
   weibo: #username
   flickr: #username
   codepen: #username
