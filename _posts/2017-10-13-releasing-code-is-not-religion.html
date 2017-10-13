@@ -1,0 +1,28 @@
+---
+layout: post
+title: Releasing Code Is Not Religion
+comments: true
+share: true
+category: professional
+---
+
+<p>Getting code from your development machine to production so that your customers can start using it is not a religious experience.</p>
+
+<p>What I mean here is that you cannot, and should not, be hoping or praying that your release will go smoothly and that no bugs will have made it to your users. You cannot will a release to go well with more checkpoint meetings, more manual process. There is no luck when it comes to building and releasing quality software.</p>
+
+<p>Whenever I see these sort of incantations and process dances playing out during release preparation, I often feel bad for the folks doing them. They're apathetic. They're scared. And often all they have left is hope. Hope that this time the stars will align and they will not have to deal with stressful days of non-stop client calls and feverish bug fixes and hotfixes.</p>
+
+<p>In the worst cases, you'll get suggestions to add yet another checkpoint meeting, this time inviting 40 staff members. Obviously, if 40 people give the green light, that is better than 20, right? Or you'll get the suggestion to stop coding a few days earlier to allow QA more time to test. Or releasing less often - maybe every few months instead of every few weeks, days, hours, minutes, etc. This is doubling down on false hope.</p>
+
+<h2>Replacing Hope With Confidence</h2>
+<p>Once you've come to grips with the fact that this isn't bad luck or any sort of luck at all, you come to see that the problems started much earlier than release day.</p>
+
+<p>How did you test the features you've worked on since the last release? Was that testing strategy complete? Was it thorough and repeatable? Did it provide you with feedback quickly enough to act on it? Do you feel confidence in it?</p>
+
+<p>Is your codebase designed well? Is it loosely coupled? Can you reason about your changes and feel confident that your changes didn't have unintended consequences elsewhere?</p>
+
+<p>When it comes to the release process itself, is it automated or is there a lot of manual steps? Humans make mistakes. Computers do whatever you tell them to. Does the process to promote code to production differ in any way from how you promote it to other environments? Do you even have intermediate environments? If there is a bug, what is the rollback procedure? Again - is this automated or does it require human interaction?</p>
+
+<p>If the answer to any of those questions is "no", then you know what you need to work on.</p>
+
+<p>Don't hope for a good release. Aim for it. Work for it. There are no miracles in software development.</p>
