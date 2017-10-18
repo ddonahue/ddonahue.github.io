@@ -1,0 +1,31 @@
+---
+layout: post
+title: Conway's Law, Coupling And Cohesion
+comments: true
+share: true
+category: professional
+---
+
+<p>For those who may be unfamilar with Conway's Law, it states:</p>
+
+<blockquote>"organizations which design systems... are constrained to produce designs which are copies of the communication structures of these organizations."</blockquote>
+
+<p>Melvin Conway was a computer programmer who introduced this idea in 1967 and evidence in support of it has been published by MIT and Harvard Business School researchers. Notably those researches found that evidence was:</p>
+
+<blockquote>"consistent with a view that distributed teams tend to develop more modular products."</blockquote>
+
+<p>I'm sure you've seen these symptoms even if you have never heard the law, or just have never sat down and processed software through this lens.</p>
+
+<p>An organization that chooses collective code ownership is likely to produce a very coupled codebase. This is because there are no defined boundaries or seams that limit developer reach. An organization whose programmers rarely meet or discuss are likely to build modules that are not easily reusable by others or to risk breaking existing modules by cracking it open and modifying it to their heart's content.</p>
+
+<p>Microsoft also carried out a <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr-2008-11.pdf" target="_blank">study</a> that found metrics associated with organizational structures proved to be the most statistically relevant measures of how error-prone a a component in the system would be. The interesting bit? This study was about their own organizational structures and product - Windows Vista.</p>
+
+<p>I was recently in a conversation with a developer who told me that their team is distributed across the world and he has adapted by communicating with everyone as though they are half a world away. Even if he needed to talk to his co-worker in the next cubicle, he would use the same means that he would when talking to one of his colleagues in Europe.</p>
+
+<p>I found that really interesting. But it makes total sense. There is no reason to treat these folks any different, and learning how to communicate clearly shouldn't be context specific. It's easy to assume your next door neighbor has a lot more context and can fill in the blanks in your otherwise shoddy communication, but its much more valuable in the long run to be consistent.</p>
+
+<p>This also applies to code. You should design the same whether you are within your team's boundary or working on the public entry point to your team's module. Keeping coupling low and cohesion high are great ideas both inside and outside your software (and team) boundaries.</p>
+
+<p>Conway's Law is 50 years old and still as relevant as ever. Pay attention to your organization's structure and how you build your software. It's uncanny that you will see the similarities.</p>
+
+<p>Use this law to your advantage. I don't mean that you should physically distribute your team just so you de-couple code. But there are reasonable steps you can take. Make sure you have regular meetings with other developers. Lack of communication is a recipe for modules that don't have a clear responsibility. Enforce strong code ownership so that you will also enforce cohesive modular software that is loosely coupled.</p>
