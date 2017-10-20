@@ -1,0 +1,21 @@
+---
+layout: post
+title: Testing A "Unit"
+comments: true
+share: true
+category: professional
+---
+
+<p>In software development these days, unit testing is a pretty well established "best practice". As such, there has grown many best/common practices around unit testing. Mock or otherwise fake your dependencies. Aim for only one <em>Assert</em> statement per unit test. That's all good and well, but what exactly is a "unit"?</p>
+
+<p>The word "unit" is intentionally abstract. Most prescriptive advice in software simply doesn't apply universally. And still, developers, in ther quest to simplify their solution space, have taken the intentionally abstract "unit" and attempted to apply concreteness to it.</p>
+
+<p>The most common definition of unit that I see play itself out in most test suites is a class (I primarily develop in object-oriented programming languages). The easiest way to spot this is by noticing that each class in the system has one corresponding <em>TestFixture</em>. The problem with enforcing this as a golden rule is that even though you may test every class in isolation, some of these classes may never be exercised in isolation. To perform a meaningful <em>unit</em> of work within the system, a few of these classes may need to work together.</p>
+
+<p>You may consider a method to be the definition of a "unit". Some OO developers think this way, as do many procedural and functional programmers. Again - this is limiting when you start to talk about the way these things are interacting.</p>
+
+<p>Typically - folks who try to strongly define "unit" will similarly say any test that expands beyond that defined "unit" is an integration test, but the term integration in software development is often saved for combining systems at the package level or crossing a strong process boundary.</p>
+
+<p>So what is a "unit"? I still haven't answered the question. Well, humble reader, I apologize but I cannot answer. You see, the word is intentionally abstract :). Instead - I offer a defense of the purposeful abstractness of the term. Do not try to create a concrete definition of a "unit" in your code. No matter what you pick, it will be a constraint. It will work against someone in some use case. It will impact the design of your software. Not just the tests, but how you design your actual solution so that it is testable under those guidelines. Embrace the fuzziness of the definition. Allow context to be king.</p>
+
+<p>Wikipedia defines "unit" as "the smallest testable part of an application". Even that is fuzzy. And sometimes that may be a method. And sometimes that may be a class. And sometimes that may be a small group of coordinating classes. Don't constrain that solution space. As long as the code is under test and its easy to find out where the error is when a test fails, you're golden. It could always be worse. You could be working in a codebase without any unit tests, running the debugger for the past hour, knee deep in breakpoints trying to reason about the code. When you consider the alternative, does it matter how many methods or classes participate in the unit test?</p>
