@@ -1,0 +1,39 @@
+---
+layout: post
+title: Let The Ubiquitous Language Be Your Guide
+comments: true
+share: true
+category: professional
+---
+
+<p>One of the many valuable concepts described in Domain-Driven Design is the Ubiquitous Language. The idea is that you should strive to consistently apply  the vocabulary of your business domain in everything you do. That means during meetings between domain experts and developer, through to the design of the code and into the source code itself. The value is that everyone is on the same page and even the code conveys a shared understanding of the domain.</p>
+
+<p>I work in the financial planning domain. The application collects a lot of information from its users about their financial situation - their assets, their expenses, information about their family, their tax information, etc. - and then uses that information to give the user a projection of their future financial picture. Recently, I was talking to another developer and they asked me:</p>
+
+<p><em>"So what should we do with accounts owned by the spouse when the spouse gets deleted? What about accounts jointly owned by both the client and their spouse?"</em></p>
+
+<p>This is a really great example of a language mismatch. The developer was speaking in developer terms - <em>deleted</em>. When you think about the business process through a developer lens, you're limited to thinking about it on technical grounds. You're likely to decide that either the spouse's accounts should be deleted along with the spouse for consistency or you can leave them there and add checks throughout the app to see if the user has a spouse to decide whether to ignore those accounts.</p>
+
+<p>In this case, the Ubiquitous Language can guide you. One really good way to force yourself to think this way is to consider what a domain expert would do. Walk through a scenario in the real world. Even more preferable is to go talk to a domain expert and have them walk you through the scenario(s).</p>
+
+<p>A financial advisor is a good domain expert for this example. If a financial advisor were meeting this client for their semi-annual check in, its unlikely that the conversation would include:</p>
+
+<p><em>"So... have you deleted your spouse since the last time we met?"</em></p>
+
+<p>Sure - that's pretty funny to read, but people don't delete their spouse. So what does happen in the real world? People pass away. People get divorced. And those meaningful events in the domain come with added context of how to handle the accounts.</p>
+
+<p>Let's imagine the scenario where instead of deleting a spouse, the client and their spouse got divorced (because I don't want to role play the more morose option).</p>
+
+<p><em>
+  Advisor: "Good to see you, Client. How are things?"</br>
+  Client: "Not great. I got divorced a few months ago. I'm trying to understand my financial picture with these changes to my circumstances."<br />
+  Advisor: "I'm sorry to hear that. Well, let's see... I see that you have some children. Are you paying or receiving child support or alimony?"</br>
+  Client: "Yes. I'm paying child support."<br />
+  Advisor: "Let me add these additional expenses. What about the house? Did you or your spouse buy the other one out? Or did you sell it?"
+</em></p>
+
+<p>I am no Shakespeare. And I've never been divorced. But I hope I made my point.</p>
+
+<p>If you let the Ubiquitous Language be your guide, it will help inform your software. Instead of a <em>Delete</em> button next to the Spouse's name in your application, perhaps a task-based UI that walks users through a workflow if there's a change in their marital status is more appropriate. Sure - that takes more mental effort to think about than just deleting some records in a database but losing a spouse is not a simple thing.</p>
+
+<p>Pay attention to when you're trying to bend a real world requirement into a purely technical one. There are natural mismatches here. Instead, try to align your technology to how the domain you're modeling works. You'll find that problems you're having in the technical domain dissolve when you apply solutions from the domain that are well-established practices. And your users will have a better experience too!</p>
