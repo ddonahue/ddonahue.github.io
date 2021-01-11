@@ -30,7 +30,7 @@ owner:
   avatar: http://www.gravatar.com/avatar/6dfa02b4173a9f663063ffa914ca0de5.png?size=160
   bio: "Musician. Traveler. Programmer."
   email: 
-  disqus-shortname: dandonahue
+  #disqus-shortname: dandonahue
   twitter: deathmetaldan13
   facebook: #username
   google:
@@ -54,8 +54,8 @@ owner:
   youtube: #username
   soundcloud: #username
   bandcamp:
-    havens: havens
-    wilderhost: wilderhost
+  #  havens: havens
+  #  wilderhost: wilderhost
   weibo: #username
   flickr: #username
   codepen: #username
